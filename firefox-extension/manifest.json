@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+  "name": "Samsung TV Cast",
+  "version": "1.0",
+  "description": "Cast video from webpages to Samsung Smart TV via UPnP/DLNA.",
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "storage",
+    "http://*/",
+    "https://*/",
+    "udp"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_title": "Cast"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
